@@ -1,4 +1,20 @@
-const { select } = require('@inquirer/prompts') // a desestruturação nesse caso serve para extrair apenas a função select.
+const { select, input } = require('@inquirer/prompts') // a desestruturação nesse caso serve para extrair funções do arquivo prompt.
+
+let metas = [];
+
+const cadastroMeta = async () => {
+    const meta = await input({ message: "Digite a meta: "});
+
+    if (meta.length == 0) {
+        console.log("Não são permitidas metas vazias\n");
+        return 
+    }
+
+    metas.push({
+        value: meta,
+        cheked: false 
+    })
+}
 
 const start = async () => {
    
@@ -24,7 +40,8 @@ const start = async () => {
 
         switch (opcao) {
             case "cadastrar":
-                console.log("Cadastrar meta\n");
+                await cadastroMeta();
+                console.log(metas);
                 break
             case "listar":
                 console.log("Vamos listar\n");
