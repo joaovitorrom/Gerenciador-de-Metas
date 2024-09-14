@@ -8,8 +8,12 @@ const start = async () => {
             message: "> Menu",
             choices: [
                 {
-                    name: "Cadastar meta",
-                    value: "cadastar"
+                    name: "Cadastrar meta",
+                    value: "cadastrar"
+                },
+                {
+                    name: "Listar meta",
+                    value: "listar"
                 },
                 {
                     name: "Sair",
@@ -20,12 +24,13 @@ const start = async () => {
 
         switch (opcao) {
             case "cadastrar":
-                console.log("Vamos iniciar o cadastro");
+                console.log("Cadastrar meta\n");
                 break
             case "listar":
-                console.log("Vamos listar");
+                console.log("Vamos listar\n");
                 break
             case "sair":
+                console.log("Até a próxima");
                 return
         }
     }
