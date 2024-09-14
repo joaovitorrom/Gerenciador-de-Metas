@@ -5,7 +5,7 @@ const start = async () => {
     while(true) {
          
         const opcao = await select({
-            message: "> Menu",
+            message: " Menu >",
             choices: [
                 {
                     name: "Cadastrar meta",
