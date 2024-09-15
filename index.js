@@ -1,12 +1,14 @@
 const { select, input, checkbox } = require('@inquirer/prompts') // a desestruturação nesse caso serve para extrair funções do arquivo prompt.
 
+let mensagem = "Boas vindas ao App de metas!"
+
 let metas = [];
 
 const cadastroMeta = async () => {
     const meta = await input({ message: "Digite a meta:"});
 
     if (meta.length == 0) {
-        console.log("Não são permitidas metas vazias\n");
+        mensagem = "Não são permitidas metas vazias";
         return 
     }
 
@@ -14,11 +16,13 @@ const cadastroMeta = async () => {
         value: meta,
         checked: false 
     })
+
+    mensagem = "Meta cadastrada com sucesso!";
 }
 
 const listarMeta = async () => {
     if(metas.length == 0) { // adicionei esse caminho para evitar o erro caso metas esteja vazio
-        console.log("Não há metas cadastradas");
+        mensagem = "Não há metas cadastradas";
         return
     }
 
@@ -33,7 +37,7 @@ const listarMeta = async () => {
     }) 
 
     if(respostas.length == 0) {
-        console.log("Nenhuma meta selecionada!");
+        mensagem = "Nenhuma meta selecionada!";
         return
     }
 
@@ -46,7 +50,7 @@ const listarMeta = async () => {
         }
     )
         
-    console.log("Meta(s) marcada(s) como concluídas");
+    mensagem = "Meta(s) marcada(s) como concluídas";
 
 }
 
@@ -56,7 +60,7 @@ const metasRealizadas = async () => {
     })
     
     if(realizadas.length == 0) {
-        console.log("Nenhuma meta realizada ainda!");
+        mensagem = "Nenhuma meta realizada ainda!";
         return
     }
 
@@ -72,7 +76,7 @@ const metasAbertas = async () => {
     })
     
     if(abertas.length == 0) {
-        console.log("Nenhuma meta aberta!");
+        mensagem = "Nenhuma meta aberta!";
         return
     }
 
@@ -91,7 +95,7 @@ const removerMetas = async () => {
     })
 
     if(metasDesmarcadas.length == 0) { // controle para que não ocorra erro caso não aja metas no array metasDesmarcadas
-        console.log("Não há metas para serem removidas");
+        mensagem = "Não há metas para serem removidas";
         return
     }
 
@@ -102,7 +106,7 @@ const removerMetas = async () => {
     })
 
     if(itensARemover.length == 0) {
-        console.log("Nenhum item foi removido");
+        mensagem = "Nenhum item foi removido";
         return
     }
 
@@ -112,15 +116,26 @@ const removerMetas = async () => {
         })
     })
 
-    console.log("Metas(s) removidas com sucesso!");
+    mensagem = "Metas(s) removidas com sucesso!";
+}
+
+const mostrarMensagem = () => {
+    console.clear(); // função que limpa o terminal
+
+    if(mensagem != "") {
+        console.log(mensagem);
+        console.log("");
+        mensagem = "";
+    }
 }
 
 const start = async () => {
    
     while(true) {
+        mostrarMensagem();
          
         const opcao = await select({
-            message: "\n Menu >",
+            message: "Menu >",
             choices: [
                 {
                     name: "Cadastrar meta",
@@ -152,7 +167,6 @@ const start = async () => {
         switch (opcao) {
             case "cadastrar":
                 await cadastroMeta();
-                console.log(metas);
                 break
             case "listar":
                 await listarMeta();
