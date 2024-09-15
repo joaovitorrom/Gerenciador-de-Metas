@@ -23,16 +23,14 @@ const listarMeta = async () => {
         instructions: false
     })
 
-    if(respostas.length == 0) {
-        console.log("Nenhuma meta selecionada!");
-        return metas.forEach((m) => { // retorno com desmarcação das metas, caso nenhuma seja selecionada
-            m.checked = false;
-        })    
-    }
-
     metas.forEach((m) => {
         m.checked = false;  // arrow function para desmarcar as metas antes que entrem na lógica de marcação
-    })
+    }) 
+
+    if(respostas.length == 0) {
+        console.log("Nenhuma meta selecionada!");
+        return
+    }
 
     respostas.forEach((resposta) => {
         const meta = metas.find((m) => {
