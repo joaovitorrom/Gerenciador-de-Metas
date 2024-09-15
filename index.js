@@ -17,6 +17,11 @@ const cadastroMeta = async () => {
 }
 
 const listarMeta = async () => {
+    if(metas.length == 0) { // adicionei esse caminho para evitar o erro caso metas esteja vazio
+        console.log("Não há metas cadastradas");
+        return
+    }
+
     const respostas = await checkbox({
         message: "Use as setas para mudar meta, o espaço marcar/desmarcar e o Enter para finalizar essa procedimento",
         choices: [...metas],
@@ -77,6 +82,39 @@ const metasAbertas = async () => {
     })
 }
 
+const removerMetas = async () => {
+    const metasDesmarcadas = metas.map((meta) => { // método map usado para alterar itens do array metas
+        return {
+            value: meta.value,
+            checked: false
+        }
+    })
+
+    if(metasDesmarcadas.length == 0) { // controle para que não ocorra erro caso não aja metas no array metasDesmarcadas
+        console.log("Não há metas para serem removidas");
+        return
+    }
+
+    const itensARemover = await checkbox({ // checkbox para selecionar metas que serão excluídas
+        message: "Selecione item para ser removido",
+        choices: [...metasDesmarcadas],
+        instructions: false
+    })
+
+    if(itensARemover.length == 0) {
+        console.log("Nenhum item foi removido");
+        return
+    }
+
+    itensARemover.forEach((item) => { // a exlusão das metas basicamente são filtros que alteram let metas = []
+        metas = metas.filter((meta) => {
+            return meta.value != item
+        })
+    })
+
+    console.log("Metas(s) removidas com sucesso!");
+}
+
 const start = async () => {
    
     while(true) {
@@ -101,6 +139,10 @@ const start = async () => {
                     value: "abertas"
                 },
                 {
+                    name: "Remover metas",
+                    value: "remover"
+                },
+                {
                     name: "Sair",
                     value: "sair"
                 }
@@ -120,6 +162,9 @@ const start = async () => {
                 break
             case "abertas":
                  await metasAbertas();
+                break
+            case "remover":
+                await removerMetas();
                 break
             case "sair":
                 console.log("Até a próxima");
