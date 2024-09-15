@@ -3,7 +3,7 @@ const { select, input, checkbox } = require('@inquirer/prompts') // a desestrutu
 let metas = [];
 
 const cadastroMeta = async () => {
-    const meta = await input({ message: "Digite a meta: "});
+    const meta = await input({ message: "Digite a meta:"});
 
     if (meta.length == 0) {
         console.log("Não são permitidas metas vazias\n");
@@ -12,38 +12,55 @@ const cadastroMeta = async () => {
 
     metas.push({
         value: meta,
-        cheked: false 
+        checked: false 
     })
 }
 
 const listarMeta = async () => {
     const respostas = await checkbox({
         message: "Use as setas para mudar meta, o espaço marcar/desmarcar e o Enter para finalizar essa procedimento",
-        choices: [...metas]
+        choices: [...metas],
+        instructions: false
     })
 
     if(respostas.length == 0) {
-        console.log("nenhuma meta selecionada!");
-        return metas.forEach((m) => {
+        console.log("Nenhuma meta selecionada!");
+        return metas.forEach((m) => { // retorno com desmarcação das metas, caso nenhuma seja selecionada
             m.checked = false;
         })    
     }
 
     metas.forEach((m) => {
-        m.checked = false;
+        m.checked = false;  // arrow function para desmarcar as metas antes que entrem na lógica de marcação
     })
 
     respostas.forEach((resposta) => {
         const meta = metas.find((m) => {
-                return m.value == resposta
+                return m.value == resposta // lógica de marcação que utiliza dois métodos de arrays
             })
             
-            meta.checked = true;
+            meta.checked = true;        
         }
     )
         
     console.log("Meta(s) marcada(s) como concluídas");
 
+}
+
+const metasRealizadas = async () => {
+    const realizadas = metas.filter((meta) => {
+        return meta.checked
+    })
+    
+    if(realizadas.length == 0) {
+        console.log("Nenhuma meta realizada ainda!");
+        return
+    }
+
+    await select({
+        message: "Metas Realizadas",
+        choices: [...realizadas]
+    })
 }
 
 const start = async () => {
@@ -62,6 +79,10 @@ const start = async () => {
                     value: "listar"
                 },
                 {
+                    name: "Metas realizadas",
+                    value: "realizadas"
+                },
+                {
                     name: "Sair",
                     value: "sair"
                 }
@@ -75,6 +96,9 @@ const start = async () => {
                 break
             case "listar":
                 await listarMeta();
+                break
+            case "realizadas":
+                await metasRealizadas();
                 break
             case "sair":
                 console.log("Até a próxima");
