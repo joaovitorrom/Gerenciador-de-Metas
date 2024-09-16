@@ -1,0 +1,14 @@
+[
+  {
+    "value": "Meditar por 5 min todos os dias",
+    "checked": false
+  },
+  {
+    "value": "Dormir 8 hrs todas as noites",
+    "checked": false
+  },
+  {
+    "value": "Comer 2 frutas ao dia",
+    "checked": true
+  }
+]

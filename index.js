@@ -1,8 +1,23 @@
 const { select, input, checkbox } = require('@inquirer/prompts') // a desestruturação nesse caso serve para extrair funções do arquivo prompt.
+const fs = require('fs').promises
 
 let mensagem = "Boas vindas ao App de metas!"
 
-let metas = [];
+let metas;
+
+const carregarMetas = async () => { // função para ler as metas do arquivo JSON
+    try {
+        const dados = await fs.readFile("metas.json", "utf-8");
+        metas = JSON.parse(dados);
+    }
+    catch(erro) {
+        metas = [];
+    }
+}
+
+const salvarMetas = async () => { // função para salvar as metas no arquivo JSON
+    await fs.writeFile("metas.json", JSON.stringify(metas, null, 2));
+}
 
 const cadastroMeta = async () => {
     const meta = await input({ message: "Digite a meta:"});
@@ -130,10 +145,13 @@ const mostrarMensagem = () => {
 }
 
 const start = async () => {
+    await carregarMetas();
+
    
     while(true) {
         mostrarMensagem();
-         
+        await salvarMetas();
+
         const opcao = await select({
             message: "Menu >",
             choices: [
