@@ -47,8 +47,8 @@ const listarMeta = async () => {
         instructions: false
     })
 
-    metas.forEach((m) => {
-        m.checked = false;  // arrow function para desmarcar as metas antes que entrem na lógica de marcação
+    metas.forEach((m) => { // arrow function para desmarcar as metas antes que entrem na lógica de marcação
+        m.checked = false;  
     }) 
 
     if(respostas.length == 0) {
@@ -125,7 +125,7 @@ const removerMetas = async () => {
         return
     }
 
-    itensARemover.forEach((item) => { // a exlusão das metas basicamente são filtros que alteram let metas = []
+    itensARemover.forEach((item) => { // a exclusão das metas basicamente são filtros que alteram let metas = []
         metas = metas.filter((meta) => {
             return meta.value != item
         })
