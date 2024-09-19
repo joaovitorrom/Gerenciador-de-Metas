@@ -160,7 +160,7 @@ const start = async () => {
                     value: "cadastrar"
                 },
                 {
-                    name: "Listar meta",
+                    name: "Listar metas",
                     value: "listar"
                 },
                 {
@@ -199,7 +199,7 @@ const start = async () => {
                 await removerMetas();
                 break
             case "sair":
-                console.log("Até a próxima");
+                console.log("Até a próxima!");
                 return
         }
     }
