@@ -1,5 +1,13 @@
+<p align="center">
+  <img src="../.github/example.png" alt="Tela Inicial do Gerenciador">
+</p>
+
+
 # Gerenciador de Metas
-Aplicação desenvolvida durante o evento NLW Pocket Javascript - promovido pela Rocketseat - com a finalidade de aplicar e aprofundar conceitos básicos de Javascript, Nodejs, JSON e Github.
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+
+Aplicação desenvolvida durante o evento NLW Pocket Javascript - promovido pela Rocketseat - com a finalidade de aplicar e aprofundar conceitos básicos de Javascript, Node.js, JSON e Github.
 
 ## Funcionalidades da aplicação
 - Cadatro de metas
@@ -11,6 +19,10 @@ Aplicação desenvolvida durante o evento NLW Pocket Javascript - promovido pela
 - Salvamento das alterações em arquivo JSON
 
 ## Tecnologias empregadas
-- Javascript
-- Nodejs
-- Biblioteca Inquirer
+
+| Tecnologia | Descrição                                                                            |
+| ---------- |:------------------------------------------------------------------------------------ |
+| JavaScript | Linguagem de programação utilizada para construir a aplicação                        |
+| Nodejs     | Ambiente de runtime JavaScript do lado do servidor (back-end)                        |
+| Inquirer   | Biblioteca que permite o uso de prompts interativos                                  |
+| JSON       | Formato de dados textuais utilizado para a permanência das metas dentro da aplicação |
