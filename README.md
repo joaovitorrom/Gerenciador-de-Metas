@@ -4,7 +4,7 @@
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 ## Sobre
-Aplicação desenvolvida durante o evento NLW Pocket Javascript - promovido pela Rocketseat - com a finalidade de aplicar e aprofundar conceitos básicos de Javascript, Node.js, JSON e Github.
+Aplicação desenvolvida durante o evento **NLW Pocket Javascript** - promovido pela **Rocketseat** - com a finalidade de aplicar e aprofundar **conceitos básicos de Javascript, Node.js, JSON e Git**.
 
 ## 📍Funcionalidades da aplicação
 - Cadastro de metas
@@ -30,7 +30,7 @@ https://github.com/user-attachments/assets/d468ddf3-350a-4465-bd18-773de8ba4254
 
 
 ### Requisitos
-> Para instalar a biblioteca Inquirer é necessário possuir o node em uma versão ^16.
+> Para instalar a biblioteca Inquirer é necessário possuir o **node** em uma **versão ^16**.
 
 ### Como executar:
 1. Clone o repositório
