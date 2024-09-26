@@ -1,7 +1,4 @@
-<h1 align="center" style="font-weight: bold;">🗃️ Gerenciador de Metas via Terminal </h1>
-<p align="center">
-  <img src="image.png" alt="Tela Inicial do Gerenciador">
-</p>
+# 🗃️ Gerenciador de Metas via Terminal
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -9,7 +6,7 @@
 ## Sobre
 Aplicação desenvolvida durante o evento NLW Pocket Javascript - promovido pela Rocketseat - com a finalidade de aplicar e aprofundar conceitos básicos de Javascript, Node.js, JSON e Github.
 
-## Funcionalidades da aplicação
+## 📍Funcionalidades da aplicação
 - Cadastro de metas
 - Lista de metas criadas 
 - Marcação de metas concluídas
@@ -18,12 +15,12 @@ Aplicação desenvolvida durante o evento NLW Pocket Javascript - promovido pela
 - Remoção de metas
 - Salvamento das alterações em arquivo JSON
 
-## Demonstração de uso:
-<p align="center">
-  <img src="video.mp4" alt="Uso prático do gerenciador">
-</p>
+## 📽 Demonstração de uso:
+https://github.com/user-attachments/assets/d468ddf3-350a-4465-bd18-773de8ba4254
 
-## Tecnologias empregadas
+
+
+## 🖥️ Tecnologias empregadas
 | Tecnologia | Descrição                                                                            |
 | ---------- |:------------------------------------------------------------------------------------ |
 | JavaScript | Linguagem de programação utilizada para construir a aplicação                        |
@@ -32,10 +29,10 @@ Aplicação desenvolvida durante o evento NLW Pocket Javascript - promovido pela
 | JSON       | Formato de dados textuais utilizado para a permanência das metas dentro da aplicação |
 
 
-## Requisitos
+### Requisitos
 > Para instalar a biblioteca Inquirer é necessário possuir o node em uma versão ^16.
 
-## Como executar:
+### Como executar:
 1. Clone o repositório
 2. Instale a biblioteca Inquirer executando: `npm install @inquirer` 
 3. Inicie a aplicação com: `node index.js`
